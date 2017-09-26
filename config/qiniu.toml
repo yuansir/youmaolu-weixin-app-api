@@ -1,0 +1,5 @@
+[default]
+accessKey = "xxx"
+secretKey = "xxx"
+bucket = "xxx"
+url = "xxx"
