@@ -1,2 +1,4 @@
+[server]
+port = 1121
 [pagination]
 pageSize = 10

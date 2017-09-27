@@ -65,7 +65,12 @@ func main() {
 	app.Controller("/products", new(controllers.ProductController))
 	app.Controller("/videos", new(controllers.VideoController))
 
-	app.Run(iris.Addr(":1121"), iris.WithConfiguration(iris.Configuration{
+	config.SetConfigName("app")
+	if err := config.ReadInConfig(); err != nil {
+		log.Fatalf("Error reading config file, %s", err)
+	}
+
+	app.Run(iris.Addr(":"+config.GetString("server.port")), iris.WithConfiguration(iris.Configuration{
 		TimeFormat: "2006-05-02 15:04:05",
 	}))
 }

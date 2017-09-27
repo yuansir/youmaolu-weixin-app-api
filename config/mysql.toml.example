@@ -1,7 +1,7 @@
 [default]
 host = "127.0.0.1"
 port = "3306"
-database = "yirimao"
+database = "youmaolu"
 user = "root"
 password = "12345"
 sql_log = false
