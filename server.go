@@ -70,7 +70,7 @@ func main() {
 		log.Fatalf("Error reading config file, %s", err)
 	}
 
-	app.Run(iris.Addr(":"+config.GetString("server.port")), iris.WithConfiguration(iris.Configuration{
+	app.Run(iris.Addr(":"+config.GetString("server.port")), iris.WithoutVersionChecker, iris.WithConfiguration(iris.Configuration{
 		TimeFormat: "2006-05-02 15:04:05",
 	}))
 }
