@@ -31,7 +31,7 @@ func (m *Gif) List(page int) ([]Gif, int, int) {
 	limit := config.GetInt("pagination.pageSize")
 	offset := (page - 1) * limit
 	libs.DB.Find(&data).Count(&totalCount)
-	err := libs.DB.Preload("Meta").Offset(offset).Limit(limit).Find(&data).Error
+	err := libs.DB.Order("id desc").Preload("Meta").Offset(offset).Limit(limit).Find(&data).Error
 	if err != nil {
 		log.Fatalln(err)
 	}
